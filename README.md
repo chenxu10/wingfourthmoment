@@ -101,7 +101,42 @@ Each Greek requires different transformation mathematics:
 
 ## Getting Started
 
-This tool will provide both a command-line interface for quick calculations and a web interface for comprehensive analysis. Stay tuned for implementation details and usage examples.
+### Installation
+```bash
+pip install -r requirements.txt
+```
+
+### Quick Usage
+
+The calculator is ready to use! Here are practical examples:
+
+#### Example 1: Hedging Short TQQQ Calls
+```bash
+python3 hedge_calculator_cli.py \
+  --tqqq-price 45.0 --tqqq-strike 46.0 --tqqq-quantity -10 --tqqq-type call \
+  --expiry 2024-12-20 --qqq-price 370.0 --qqq-strike 380.0 --qqq-type call
+```
+**Result**: Buy 218 QQQ $380 calls to hedge 10 short TQQQ $46 calls
+
+#### Example 2: Hedging Short TQQQ Puts  
+```bash
+python3 hedge_calculator_cli.py \
+  --tqqq-price 45.0 --tqqq-strike 44.0 --tqqq-quantity -5 --tqqq-type put \
+  --expiry 2024-12-27 --qqq-price 370.0 --qqq-strike 360.0 --qqq-type put
+```
+**Result**: Buy 128 QQQ $360 puts to hedge 5 short TQQQ $44 puts
+
+### Command Line Parameters
+- `--tqqq-price`: Current TQQQ market price
+- `--tqqq-strike`: Your TQQQ option strike price  
+- `--tqqq-quantity`: Number of contracts (negative for short positions)
+- `--tqqq-type`: call or put
+- `--qqq-price`: Current QQQ market price
+- `--qqq-strike`: QQQ hedge option strike price
+- `--qqq-type`: call or put (typically same as TQQQ type)
+- `--expiry`: Expiration date (YYYY-MM-DD format)
+- `--volatility`: Implied volatility (optional, default 0.25)
+- `--risk-free-rate`: Risk-free rate (optional, default 0.05)
 
 ---
 
