@@ -148,7 +148,21 @@ def short_put_payoff_analysis():
     ax4.set_title('P&L Surface (ATM, Stock=$100)')
     
     plt.tight_layout()
-    plt.show()
+    
+    # Save plot to file  
+    import os
+    output_dir = os.environ.get('PLOT_OUTPUT_DIR', '.')
+    os.makedirs(output_dir, exist_ok=True)
+    filename = "SP7_short_put_analysis.png"
+    filepath = os.path.join(output_dir, filename)
+    plt.savefig(filepath, dpi=300, bbox_inches='tight')
+    print(f"📊 Plot saved to: {filepath}")
+    
+    # Also try to show if in interactive environment
+    try:
+        plt.show()
+    except:
+        print("💡 Plot saved to file (interactive display not available)")
     
     # Strategy Analysis Summary
     print(f"\n=== Strategy Analysis ===")

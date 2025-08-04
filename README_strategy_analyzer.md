@@ -32,6 +32,11 @@ uv run python option_strategy_analyzer.py SP7
 uv run python option_strategy_analyzer.py SP7 --price 150
 ```
 
+### 5. Save Plots to Custom Directory
+```bash
+uv run python option_strategy_analyzer.py SP7 --output-dir ./plots
+```
+
 ### Alternative (without uv)
 ```bash
 python3 option_strategy_analyzer.py SP7
@@ -64,6 +69,12 @@ uv run python option_strategy_analyzer.py SP7
 - Breakeven: ~$97.35
 - Max Profit: Premium received
 - Max Loss: Strike - Premium (if stock → 0)
+
+📊 **Plot Output**: Automatically saves comprehensive 4-panel analysis as `SP7_analysis.png` including:
+- Payoff at Expiration diagram
+- Time Decay Effect analysis  
+- Volatility Sensitivity charts
+- Strategy Summary with Greeks
 
 ### Key Strategy Examples
 

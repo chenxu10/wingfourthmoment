@@ -44,37 +44,37 @@
 | P14 | Deep ITM | Put | Medium | H | L | L (5-25%) | L | F | Strike - Premium | Income, Bear, Stable Regime | Bull Market, Rate Regime Shift | Conservative short |
 | P15 | Deep ITM | Put | Long | H | L | L (3-20%) | L | F | Strike - Premium | Long Bear, Dividend, Any Regime | Opportunity Cost, Bull Regime Shift | Short alternative |
 | **SHORT CALL STRATEGIES** |
-| SC1 | Deep OTM | Short Call | Near | Credit | U | L (Premium) | E | F | Strike - Premium | Sideways, Bear, High IV, Range Regime | Strong Bull, News Catalyst, Low IV | Premium collection, extreme risk |
-| SC2 | Deep OTM | Short Call | Medium | Credit | U | L-M (Premium) | H | F | Strike - Premium | Range-bound, Bear, High IV, Stable Regime | Gradual Bull, Vol Expansion, Breakout | Time decay benefit, unlimited risk |
-| SC3 | Deep OTM | Short Call | Long | Credit | U | M (Premium) | H | F | Strike - Premium | Long Bear/Range, High IV, Bear Regime | Long Bull Trend, Bull Regime Shift | Slow time decay, major risk |
-| SC4 | Shallow OTM | Short Call | Near | Credit | U | L-M (Premium) | H | F | Strike - Premium | Sideways, Bear, High IV, Range Regime | Strong Bull, Momentum, Low IV | Moderate risk, good premium |
-| SC5 | Shallow OTM | Short Call | Medium | Credit | U | M (Premium) | M-H | F | Strike - Premium | Range-bound, Bear, High IV, Recession Regime | Steady Bull, Growth Regime, Earnings | Balanced premium collection |
-| SC6 | Shallow OTM | Short Call | Long | Credit | U | M-H (Premium) | M | F | Strike - Premium | Long Bear/Range, High IV, Contraction Regime | Bull Trend, Expansion Regime, Low IV | Conservative premium, major risk |
-| SC7 | ATM | Short Call | Near | Credit | U | M (Premium) | M | F | Strike - Premium | Sideways, Bear, High IV, Range Regime | Bull Momentum, Trending, Low IV | High gamma risk, good premium |
-| SC8 | ATM | Short Call | Medium | Credit | U | M-H (Premium) | M | F | Strike - Premium | Range-bound, Bear, High IV, Stagnation Regime | Bull Trend, Growth Regime, Vol Expansion | Most liquid, balanced risk |
-| SC9 | ATM | Short Call | Long | Credit | U | H (Premium) | L-M | G | Strike - Premium | Long Bear/Range, High IV, Bear Regime | Long Bull, Bull Regime, Low IV | Lower risk, steady income |
-| SC10 | Shallow ITM | Short Call | Near | Credit | U | M-H (Premium) | L-M | F | Strike - Premium | Sideways, Bear, High IV, Range Regime | Bull Continuation, Momentum, Low IV | Assignment risk, intrinsic loss |
-| SC11 | Shallow ITM | Short Call | Medium | Credit | U | H (Premium) | L-M | G | Strike - Premium | Range-bound, Bear, High IV, Bear Regime | Steady Bull, Bull Regime, Vol Expansion | Good income, assignment risk |
-| SC12 | Shallow ITM | Short Call | Long | Credit | U | H (Premium) | L | E | Strike - Premium | Long Bear/Range, High IV, Bear Regime | Conservative Bull, Bull Regime Shift | High premium, covered call alternative |
-| SC13 | Deep ITM | Short Call | Near | Credit | U | H (Premium) | L | G | Strike - Premium | Bear Certainty, High IV, Any Regime | Bull Certainty, Bull Regime, Low IV | Almost certain assignment |
-| SC14 | Deep ITM | Short Call | Medium | Credit | U | H (Premium) | L | G | Strike - Premium | Bear Market, High IV, Bear Regime | Steady Bull, Bull Regime, Vol Expansion | High income, likely assignment |
-| SC15 | Deep ITM | Short Call | Long | Credit | U | H (Premium) | L | E | Strike - Premium | Long Bear, High IV, Bear Regime | Long Bull, Bull Regime Shift, Low IV | Maximum premium, stock alternative |
+| SC1 | Deep OTM | Short Call | Near | Credit | U | L (Premium) | E | F | Strike + Premium | Sideways, Bear, High IV, Range Regime | Strong Bull, News Catalyst, Low IV | Premium collection, extreme risk |
+| SC2 | Deep OTM | Short Call | Medium | Credit | U | L-M (Premium) | H | F | Strike + Premium | Range-bound, Bear, High IV, Stable Regime | Gradual Bull, Vol Expansion, Breakout | Time decay benefit, unlimited risk |
+| SC3 | Deep OTM | Short Call | Long | Credit | U | M (Premium) | H | F | Strike + Premium | Long Bear/Range, High IV, Bear Regime | Long Bull Trend, Bull Regime Shift | Slow time decay, major risk |
+| SC4 | Shallow OTM | Short Call | Near | Credit | U | L-M (Premium) | H | F | Strike + Premium | Sideways, Bear, High IV, Range Regime | Strong Bull, Momentum, Low IV | Moderate risk, good premium |
+| SC5 | Shallow OTM | Short Call | Medium | Credit | U | M (Premium) | M-H | F | Strike + Premium | Range-bound, Bear, High IV, Recession Regime | Steady Bull, Growth Regime, Earnings | Balanced premium collection |
+| SC6 | Shallow OTM | Short Call | Long | Credit | U | M-H (Premium) | M | F | Strike + Premium | Long Bear/Range, High IV, Contraction Regime | Bull Trend, Expansion Regime, Low IV | Conservative premium, major risk |
+| SC7 | ATM | Short Call | Near | Credit | U | M (Premium) | M | F | Strike + Premium | Sideways, Bear, High IV, Range Regime | Bull Momentum, Trending, Low IV | High gamma risk, good premium |
+| SC8 | ATM | Short Call | Medium | Credit | U | M-H (Premium) | M | F | Strike + Premium | Range-bound, Bear, High IV, Stagnation Regime | Bull Trend, Growth Regime, Vol Expansion | Most liquid, balanced risk |
+| SC9 | ATM | Short Call | Long | Credit | U | H (Premium) | L-M | G | Strike + Premium | Long Bear/Range, High IV, Bear Regime | Long Bull, Bull Regime, Low IV | Lower risk, steady income |
+| SC10 | Shallow ITM | Short Call | Near | Credit | U | M-H (Premium) | L-M | F | Strike + Premium | Sideways, Bear, High IV, Range Regime | Bull Continuation, Momentum, Low IV | Assignment risk, intrinsic loss |
+| SC11 | Shallow ITM | Short Call | Medium | Credit | U | H (Premium) | L-M | G | Strike + Premium | Range-bound, Bear, High IV, Bear Regime | Steady Bull, Bull Regime, Vol Expansion | Good income, assignment risk |
+| SC12 | Shallow ITM | Short Call | Long | Credit | U | H (Premium) | L | E | Strike + Premium | Long Bear/Range, High IV, Bear Regime | Conservative Bull, Bull Regime Shift | High premium, covered call alternative |
+| SC13 | Deep ITM | Short Call | Near | Credit | U | H (Premium) | L | G | Strike + Premium | Bear Certainty, High IV, Any Regime | Bull Certainty, Bull Regime, Low IV | Almost certain assignment |
+| SC14 | Deep ITM | Short Call | Medium | Credit | U | H (Premium) | L | G | Strike + Premium | Bear Market, High IV, Bear Regime | Steady Bull, Bull Regime, Vol Expansion | High income, likely assignment |
+| SC15 | Deep ITM | Short Call | Long | Credit | U | H (Premium) | L | E | Strike + Premium | Long Bear, High IV, Bear Regime | Long Bull, Bull Regime Shift, Low IV | Maximum premium, stock alternative |
 | **SHORT PUT STRATEGIES** |
-| SP1 | Deep OTM | Short Put | Near | Credit | L | L (Premium) | E | F | Strike + Premium | Bull, Sideways, High IV, Stable Bull Regime | Crash, Bear Regime Shift, Low IV | Premium collection, crash risk |
-| SP2 | Deep OTM | Short Put | Medium | Credit | L | L-M (Premium) | H | F | Strike + Premium | Bull, Range-bound, High IV, Growth Regime | Bear Market, Recession, Vol Expansion | Time decay benefit, crash exposure |
-| SP3 | Deep OTM | Short Put | Long | Credit | M | M (Premium) | H | F | Strike + Premium | Long Bull, High IV, Bull Regime | Long Bear, Bear Regime Shift, Low IV | Slow decay, portfolio risk |
-| SP4 | Shallow OTM | Short Put | Near | Credit | M | L-M (Premium) | H | F | Strike + Premium | Bull, Sideways, High IV, Low Vol Regime | Bear Break, Volatility Regime, Low IV | Moderate risk, decent premium |
-| SP5 | Shallow OTM | Short Put | Medium | Credit | M | M (Premium) | M-H | G | Strike + Premium | Bull, Range-bound, High IV, Expansion Regime | Bear Trend, Contraction Regime, Vol Expansion | Balanced strategy, assignment possible |
-| SP6 | Shallow OTM | Short Put | Long | Credit | M | M-H (Premium) | M | G | Strike + Premium | Long Bull, High IV, Bull Regime | Long Bear, Bear Regime, Low IV | Conservative income, put assignment |
-| SP7 | ATM | Short Put | Near | Credit | M | M (Premium) | M | F | Strike + Premium | Bull, Sideways, High IV, Range Regime | Bear Momentum, Trending Down, Low IV | High gamma risk, 50% assignment |
-| SP8 | ATM | Short Put | Medium | Credit | M | M-H (Premium) | M | G | Strike + Premium | Bull, Range-bound, High IV, Growth Regime | Bear Trend, Defensive Regime, Vol Expansion | Liquid, balanced assignment risk |
-| SP9 | ATM | Short Put | Long | Credit | L-M | H (Premium) | L-M | G | Strike + Premium | Long Bull, High IV, Risk-On Regime | Long Bear, Risk-Off Regime, Low IV | Lower assignment risk, income |
-| SP10 | Shallow ITM | Short Put | Near | Credit | M | M-H (Premium) | L-M | F | Strike + Premium | Bull, Sideways, High IV, Range Regime | Bear Continuation, Momentum Down, Low IV | Likely assignment, intrinsic loss |
-| SP11 | Shallow ITM | Short Put | Medium | Credit | L | H (Premium) | L-M | G | Strike + Premium | Bull, Range-bound, High IV, Bull Regime | Steady Bear, Bear Regime Shift, Vol Expansion | Good premium, assignment likely |
-| SP12 | Shallow ITM | Short Put | Long | Credit | L | H (Premium) | L | E | Strike + Premium | Long Bull, High IV, Bull Regime | Conservative Bear, Bear Regime Shift, Low IV | High premium, cash-secured put |
-| SP13 | Deep ITM | Short Put | Near | Credit | L | H (Premium) | L | G | Strike + Premium | Bull Certainty, High IV, Any Regime | Bear Certainty, Bear Regime, Low IV | Almost certain assignment |
-| SP14 | Deep ITM | Short Put | Medium | Credit | L | H (Premium) | L | G | Strike + Premium | Bull Market, High IV, Bull Regime | Bear Market, Bear Regime, Vol Expansion | High income, assignment guaranteed |
-| SP15 | Deep ITM | Short Put | Long | Credit | L | H (Premium) | L | E | Strike + Premium | Long Bull, High IV, Bull Regime | Long Bear, Bear Regime Shift, Low IV | Maximum premium, stock acquisition |
+| SP1 | Deep OTM | Short Put | Near | Credit | L | L (Premium) | E | F | Strike - Premium | Bull, Sideways, High IV, Stable Bull Regime | Crash, Bear Regime Shift, Low IV | Premium collection, crash risk |
+| SP2 | Deep OTM | Short Put | Medium | Credit | L | L-M (Premium) | H | F | Strike - Premium | Bull, Range-bound, High IV, Growth Regime | Bear Market, Recession, Vol Expansion | Time decay benefit, crash exposure |
+| SP3 | Deep OTM | Short Put | Long | Credit | M | M (Premium) | H | F | Strike - Premium | Long Bull, High IV, Bull Regime | Long Bear, Bear Regime Shift, Low IV | Slow decay, portfolio risk |
+| SP4 | Shallow OTM | Short Put | Near | Credit | M | L-M (Premium) | H | F | Strike - Premium | Bull, Sideways, High IV, Low Vol Regime | Bear Break, Volatility Regime, Low IV | Moderate risk, decent premium |
+| SP5 | Shallow OTM | Short Put | Medium | Credit | M | M (Premium) | M-H | G | Strike - Premium | Bull, Range-bound, High IV, Expansion Regime | Bear Trend, Contraction Regime, Vol Expansion | Balanced strategy, assignment possible |
+| SP6 | Shallow OTM | Short Put | Long | Credit | M | M-H (Premium) | M | G | Strike - Premium | Long Bull, High IV, Bull Regime | Long Bear, Bear Regime, Low IV | Conservative income, put assignment |
+| SP7 | ATM | Short Put | Near | Credit | M | M (Premium) | M | F | Strike - Premium | Bull, Sideways, High IV, Range Regime | Bear Momentum, Trending Down, Low IV | High gamma risk, 50% assignment |
+| SP8 | ATM | Short Put | Medium | Credit | M | M-H (Premium) | M | G | Strike - Premium | Bull, Range-bound, High IV, Growth Regime | Bear Trend, Defensive Regime, Vol Expansion | Liquid, balanced assignment risk |
+| SP9 | ATM | Short Put | Long | Credit | L-M | H (Premium) | L-M | G | Strike - Premium | Long Bull, High IV, Risk-On Regime | Long Bear, Risk-Off Regime, Low IV | Lower assignment risk, income |
+| SP10 | Shallow ITM | Short Put | Near | Credit | M | M-H (Premium) | L-M | F | Strike - Premium | Bull, Sideways, High IV, Range Regime | Bear Continuation, Momentum Down, Low IV | Likely assignment, intrinsic loss |
+| SP11 | Shallow ITM | Short Put | Medium | Credit | L | H (Premium) | L-M | G | Strike - Premium | Bull, Range-bound, High IV, Bull Regime | Steady Bear, Bear Regime Shift, Vol Expansion | Good premium, assignment likely |
+| SP12 | Shallow ITM | Short Put | Long | Credit | L | H (Premium) | L | E | Strike - Premium | Long Bull, High IV, Bull Regime | Conservative Bear, Bear Regime Shift, Low IV | High premium, cash-secured put |
+| SP13 | Deep ITM | Short Put | Near | Credit | L | H (Premium) | L | G | Strike - Premium | Bull Certainty, High IV, Any Regime | Bear Certainty, Bear Regime, Low IV | Almost certain assignment |
+| SP14 | Deep ITM | Short Put | Medium | Credit | L | H (Premium) | L | G | Strike - Premium | Bull Market, High IV, Bull Regime | Bear Market, Bear Regime, Vol Expansion | High income, assignment guaranteed |
+| SP15 | Deep ITM | Short Put | Long | Credit | L | H (Premium) | L | E | Strike - Premium | Long Bull, High IV, Bull Regime | Long Bear, Bear Regime Shift, Low IV | Maximum premium, stock acquisition |
 | **SPREAD STRATEGIES** |
 | S1 | Mixed | Bull Call Spread | Near | M | L | L (50-200%) | M | G | Lower Strike + Premium | Moderate Bull, Defined Risk | Strong Bull, Bear, High IV | Limited upside, controlled risk |
 | S2 | Mixed | Bull Call Spread | Medium | M-H | L | L-M (30-150%) | M | G | Lower Strike + Premium | Steady Bull, Earnings Play | Bear, Vol Crush, Range | Popular spread, liquid |

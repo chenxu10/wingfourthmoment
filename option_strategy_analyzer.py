@@ -10,6 +10,7 @@ from scipy.stats import norm
 import math
 import argparse
 import sys
+import os
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Dict, List, Tuple, Optional
@@ -203,8 +204,31 @@ class SpreadStrategy(OptionStrategy):
     """Spread strategies (S1-S24)"""
     
     def __init__(self, config: StrategyConfig, base_price: float = 100.0):
-        super().__init__(config, base_price)
+        self.config = config
+        self.base_price = base_price
+        self.calculator = BlackScholesCalculator()
+        self.risk_free_rate = 0.05
+        self.volatility = 0.25
+        
+        # Set time to expiration based on time frame
+        self.time_to_expiration = self._get_time_to_expiration()
+        
+        # Get spread strikes instead of single strike
         self.long_strike, self.short_strike = self._get_spread_strikes()
+    
+    def _get_time_to_expiration(self) -> float:
+        """Get time to expiration based on time frame"""
+        time_map = {
+            "Near": 30 / 365,    # 30 days
+            "Medium": 60 / 365,  # 60 days  
+            "Long": 120 / 365    # 120 days
+        }
+        return time_map.get(self.config.time_frame, 30 / 365)
+    
+    @property
+    def strike_price(self) -> str:
+        """Return a string representation of the spread strikes"""
+        return f"{self.short_strike:.0f}/{self.long_strike:.0f}"
     
     def _get_spread_strikes(self) -> Tuple[float, float]:
         """Get strike prices for spread strategies"""
@@ -232,29 +256,31 @@ class SpreadStrategy(OptionStrategy):
         return long_strike, short_strike
     
     def calculate_payoff(self, stock_prices: np.ndarray, time_to_exp: float = None) -> np.ndarray:
-        # Simplified spread calculation - would need specific logic for each spread type
+        """Calculate payoff for spread strategies"""
         if "Call" in self.config.name:
             if "Bull" in self.config.name:
-                # Bull call spread
+                # Bull call spread: Buy lower strike, sell higher strike (Net Debit)
                 long_payoffs = np.maximum(stock_prices - self.long_strike, 0)
                 short_payoffs = np.maximum(stock_prices - self.short_strike, 0)
                 return long_payoffs - short_payoffs - self.get_initial_cost()
             else:
-                # Bear call spread
+                # Bear call spread: Sell lower strike, buy higher strike (Net Credit)  
                 long_payoffs = np.maximum(stock_prices - self.long_strike, 0)
                 short_payoffs = np.maximum(stock_prices - self.short_strike, 0)
-                return short_payoffs - long_payoffs + self.get_initial_cost()
+                return -self.get_initial_cost() - (short_payoffs - long_payoffs)
         else:
             # Put spreads
             if "Bull" in self.config.name:
-                # Bull put spread
-                long_payoffs = np.maximum(self.long_strike - stock_prices, 0)
-                short_payoffs = np.maximum(self.short_strike - stock_prices, 0)
-                return short_payoffs - long_payoffs + self.get_initial_cost()
+                # Bull put spread: Sell higher strike, buy lower strike (Net Credit)
+                # We collect credit upfront, lose money if puts go ITM
+                long_payoffs = np.maximum(self.long_strike - stock_prices, 0)   # Put we own (lower strike)
+                short_payoffs = np.maximum(self.short_strike - stock_prices, 0) # Put we sold (higher strike)
+                # P&L = Credit received - (what we owe on short put - what we get from long put)
+                return -self.get_initial_cost() - (short_payoffs - long_payoffs)
             else:
-                # Bear put spread
+                # Bear put spread: Buy higher strike, sell lower strike (Net Debit)
                 long_payoffs = np.maximum(self.long_strike - stock_prices, 0)
-                short_payoffs = np.maximum(self.short_strike - stock_prices, 0)
+                short_payoffs = np.maximum(self.short_strike - stock_prices, 0)  
                 return long_payoffs - short_payoffs - self.get_initial_cost()
     
     def get_initial_cost(self) -> float:
@@ -279,9 +305,9 @@ class SpreadStrategy(OptionStrategy):
             )
         
         if "Bull Call" in self.config.name or "Bear Put" in self.config.name:
-            return long_premium - short_premium  # Net debit
+            return long_premium - short_premium  # Net debit (positive = money paid)
         else:
-            return short_premium - long_premium  # Net credit
+            return short_premium - long_premium  # Net credit (positive = money received)
 
 class StrategyFactory:
     """Factory to create strategy objects from codes"""
@@ -402,8 +428,11 @@ class StrategyFactory:
 class VisualizationEngine:
     """Generate visualizations for options strategies"""
     
-    def __init__(self, strategy: OptionStrategy):
+    def __init__(self, strategy: OptionStrategy, output_dir: str = '.'):
         self.strategy = strategy
+        self.output_dir = output_dir
+        # Create output directory if it doesn't exist
+        os.makedirs(output_dir, exist_ok=True)
     
     def generate_full_analysis(self, stock_range: Tuple[float, float] = (80, 120)):
         """Generate complete 4-panel analysis"""
@@ -426,7 +455,18 @@ class VisualizationEngine:
         self._plot_strategy_summary(ax4)
         
         plt.tight_layout()
-        plt.show()
+        
+        # Save plot to file
+        filename = f"{self.strategy.config.code}_analysis.png"
+        filepath = os.path.join(self.output_dir, filename)
+        plt.savefig(filepath, dpi=300, bbox_inches='tight')
+        print(f"📊 Plot saved to: {filepath}")
+        
+        # Also try to show if in interactive environment
+        try:
+            plt.show()
+        except:
+            print("💡 Plot saved to file (interactive display not available)")
         
         # Print analysis
         self._print_analysis()
@@ -494,9 +534,20 @@ class VisualizationEngine:
         ax.legend()
         ax.grid(True, alpha=0.3)
     
+    def _is_credit_strategy(self) -> bool:
+        """Determine if this is a credit strategy"""
+        if "short" in self.strategy.config.strategy_type:
+            return True
+        elif self.strategy.config.strategy_type == "spread":
+            return "Bull Put" in self.strategy.config.name or "Bear Call" in self.strategy.config.name
+        return False
+    
     def _plot_strategy_summary(self, ax):
         """Plot strategy summary info"""
         ax.axis('off')
+        
+        is_credit = self._is_credit_strategy()
+        cost = self.strategy.get_initial_cost()
         
         info_text = f"""
 Strategy: {self.strategy.config.code}
@@ -506,12 +557,12 @@ Moneyness: {self.strategy.config.moneyness}
 Time Frame: {self.strategy.config.time_frame}
 
 Current Stock: ${self.strategy.base_price:.2f}
-Strike Price: ${self.strategy.strike_price:.2f}
+Strike Price: ${self.strategy.strike_price}
 Time to Expiration: {self.strategy.time_to_expiration*365:.0f} days
 Volatility: {self.strategy.volatility*100:.0f}%
 
-Initial Cost: ${abs(self.strategy.get_initial_cost()):.2f}
-{"(Credit Received)" if "short" in self.strategy.config.strategy_type else "(Debit Paid)"}
+Initial {"Credit" if is_credit else "Cost"}: ${abs(cost):.2f}
+{"(Credit Received)" if is_credit else "(Debit Paid)"}
         """
         
         ax.text(0.05, 0.95, info_text, transform=ax.transAxes, fontsize=10,
@@ -521,11 +572,12 @@ Initial Cost: ${abs(self.strategy.get_initial_cost()):.2f}
     def _print_analysis(self):
         """Print detailed analysis"""
         cost = self.strategy.get_initial_cost()
+        is_credit = self._is_credit_strategy()
         print(f"\n=== {self.strategy.config.code}: {self.strategy.config.name} ===")
         print(f"Description: {self.strategy.config.description}")
         print(f"Current Stock Price: ${self.strategy.base_price:.2f}")
-        print(f"Strike Price: ${self.strategy.strike_price:.2f}")
-        print(f"Initial {'Credit' if 'short' in self.strategy.config.strategy_type else 'Cost'}: ${abs(cost):.2f}")
+        print(f"Strike Price: ${self.strategy.strike_price}")
+        print(f"Initial {'Credit' if is_credit else 'Cost'}: ${abs(cost):.2f}")
         print(f"Time to Expiration: {self.strategy.time_to_expiration*365:.0f} days")
         print(f"Implied Volatility: {self.strategy.volatility*100:.0f}%")
 
@@ -536,6 +588,7 @@ def main():
     parser.add_argument('--list', action='store_true', help='List all available strategies')
     parser.add_argument('--info', help='Get info about a specific strategy')
     parser.add_argument('--price', type=float, default=100.0, help='Base stock price (default: 100)')
+    parser.add_argument('--output-dir', default='.', help='Output directory for plots (default: current directory)')
     
     args = parser.parse_args()
     
@@ -576,7 +629,7 @@ def main():
         return
     
     # Generate visualization
-    viz = VisualizationEngine(strategy)
+    viz = VisualizationEngine(strategy, args.output_dir)
     viz.generate_full_analysis()
 
 if __name__ == "__main__":
