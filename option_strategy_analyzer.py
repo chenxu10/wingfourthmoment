@@ -267,7 +267,7 @@ class SpreadStrategy(OptionStrategy):
                 # Bear call spread: Sell lower strike, buy higher strike (Net Credit)  
                 long_payoffs = np.maximum(stock_prices - self.long_strike, 0)
                 short_payoffs = np.maximum(stock_prices - self.short_strike, 0)
-                return -self.get_initial_cost() - (short_payoffs - long_payoffs)
+                return self.get_initial_cost() - (short_payoffs - long_payoffs)
         else:
             # Put spreads
             if "Bull" in self.config.name:
@@ -276,7 +276,7 @@ class SpreadStrategy(OptionStrategy):
                 long_payoffs = np.maximum(self.long_strike - stock_prices, 0)   # Put we own (lower strike)
                 short_payoffs = np.maximum(self.short_strike - stock_prices, 0) # Put we sold (higher strike)
                 # P&L = Credit received - (what we owe on short put - what we get from long put)
-                return -self.get_initial_cost() - (short_payoffs - long_payoffs)
+                return self.get_initial_cost() - (short_payoffs - long_payoffs)
             else:
                 # Bear put spread: Buy higher strike, sell lower strike (Net Debit)
                 long_payoffs = np.maximum(self.long_strike - stock_prices, 0)
