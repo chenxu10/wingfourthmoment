@@ -428,7 +428,7 @@ class StrategyFactory:
 class VisualizationEngine:
     """Generate visualizations for options strategies"""
     
-    def __init__(self, strategy: OptionStrategy, output_dir: str = '.'):
+    def __init__(self, strategy: OptionStrategy, output_dir: str = 'strategy_plot'):
         self.strategy = strategy
         self.output_dir = output_dir
         # Create output directory if it doesn't exist

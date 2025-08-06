@@ -2,7 +2,7 @@
 
 A comprehensive Python framework for analyzing all 84 options strategies from the Options Strategy Bagua Analysis. This tool provides professional-grade options pricing, risk analysis, and visualization capabilities using object-oriented design principles.
 
-![OOP Architecture](option_strategy_analyzer_oop_diagram.png)
+![OOP Architecture](diagram/option_strategy_analyzer_oop_diagram.png)
 
 ## 🏗️ Architecture Overview
 
