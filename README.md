@@ -74,16 +74,16 @@ pip install numpy matplotlib scipy
 ### Basic Usage
 ```bash
 # Analyze specific strategy
-python option_strategy_analyzer.py SP7
+python3 option_strategy_analyzer.py SP7
 
 # List all available strategies  
-python option_strategy_analyzer.py --list
+python3 option_strategy_analyzer.py --list
 
 # Get strategy information
-python option_strategy_analyzer.py --info C5
+python3 option_strategy_analyzer.py --info C5
 
 # Custom stock price
-python option_strategy_analyzer.py S15 --price 150
+python3 option_strategy_analyzer.py S15 --price 150
 ```
 
 ### Programmatic Usage

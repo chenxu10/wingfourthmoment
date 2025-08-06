@@ -60,7 +60,7 @@ This table outlines what market opinion or view each of the 84 option strategies
 | SP4 | Shallow OTM Short Put | Shallow OTM | Near | |
 | SP5 | Shallow OTM Short Put | Shallow OTM | Medium | |
 | SP6 | Shallow OTM Short Put | Shallow OTM | Long | |
-| SP7 | ATM Short Put | ATM | Near | **Neutral to Bullish** - Trader believes stock will not decline significantly below current price and is willing to own shares at current levels while collecting premium. Expresses confidence in price support at current levels. |
+| SP7 | ATM Short Put | ATM | Near | **"Stock Won't Crash Below Current Price"** - Trader believes stock is unlikely to fall significantly below strike level. Prepared to suffer substantial losses by owning shares well above market if wrong. Risk exposure: Potentially large downside to zero (minus premium collected). Worst case: Get assigned 100 shares at strike price while stock trades much lower, creating immediate unrealized loss. |
 | SP8 | ATM Short Put | ATM | Medium | |
 | SP9 | ATM Short Put | ATM | Long | |
 | SP10 | Shallow ITM Short Put | Shallow ITM | Near | |
@@ -76,7 +76,7 @@ This table outlines what market opinion or view each of the 84 option strategies
 | S4 | Bear Call Spread | Mixed | Near | |
 | S5 | Bear Call Spread | Mixed | Medium | |
 | S6 | Bear Call Spread | Mixed | Long | |
-| S7 | Bull Put Spread | Mixed | Near | **Moderately Bullish** - Trader believes stock will remain above the lower strike price and wants to collect premium while maintaining defined upside participation. Expresses optimism with controlled risk and willingness to own shares if assigned. |
+| S7 | Bull Put Spread | Mixed | Near | **"Stock Won't Collapse"** - Trader believes stock is unlikely to fall below the lower strike. Prepared to suffer maximum loss of spread width minus credit received if wrong. Risk exposure: Limited but substantial downside if stock crashes. Worst case: Keep premium but get assigned shares at higher strike when stock is trading much lower. |
 | S8 | Bull Put Spread | Mixed | Medium | |
 | S9 | Bull Put Spread | Mixed | Long | |
 | S10 | Bear Put Spread | Mixed | Near | |

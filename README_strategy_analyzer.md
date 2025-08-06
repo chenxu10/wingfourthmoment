@@ -125,29 +125,7 @@ Run the comprehensive test suite:
 ```bash
 # Run all tests with uv
 uv run pytest
-
-# Run tests with coverage
-uv run pytest --cov
-
-# Run specific test file  
-uv run pytest tests/test_option_strategy_analyzer.py
-
-# Run specific test class
-uv run pytest tests/test_option_strategy_analyzer.py::TestShortPutStrategy
-
-# Run with verbose output
-uv run pytest -v
 ```
-
-### Alternative (without uv)
-```bash
-# Run all tests
-python3 -m pytest tests/
-
-# Run specific test class
-python3 -m unittest tests.test_option_strategy_analyzer.TestShortPutStrategy
-```
-
 ### Test Coverage
 - Black-Scholes calculations
 - Strategy factory functionality
