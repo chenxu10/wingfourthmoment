@@ -13,7 +13,10 @@ from unittest.mock import patch, MagicMock
 # Add the parent directory to the path so we can import our modules
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from option_strategy_analyzer import (
+# Import from the new modular structure
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'src'))
+
+from option_analyzer import (
     BlackScholesCalculator, StrategyFactory, StrategyConfig,
     LongCallStrategy, LongPutStrategy, ShortCallStrategy, 
     ShortPutStrategy, SpreadStrategy, VisualizationEngine
