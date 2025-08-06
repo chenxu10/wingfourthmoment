@@ -88,7 +88,7 @@ This table outlines what market opinion or view each of the 84 option strategies
 | S16 | Ratio Spread | Mixed | Medium | |
 | S17 | Back Ratio Spread | Mixed | Near | |
 | S18 | Back Ratio Spread | Mixed | Medium | |
-| S19 | Iron Condor | Mixed | Near | |
+| S19 | Iron Condor | Mixed | Near | **"Stock Will Stay Range-Bound"** - Trader believes stock will remain within a specific price range between the inner strikes (95-105). Prepared to suffer losses if stock breaks out in either direction beyond the outer wings. Risk exposure: Limited maximum loss equal to wing width minus net credit received. Worst case: Stock moves strongly above 110 or below 90, resulting in maximum loss on one side while the other side expires worthless. This is a market-neutral strategy betting on low volatility and sideways price action. |
 | S20 | Iron Condor | Mixed | Medium | |
 | S21 | Iron Condor | Mixed | Long | |
 | S22 | Butterfly Spread | ATM | Near | |
