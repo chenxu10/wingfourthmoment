@@ -266,5 +266,3 @@ This project implements the complete Options Strategy Bagua Analysis framework w
 - [Short Put Analysis](short_put_payoff_analysis.py): Specialized put strategy tools
 
 ---
-
-*Built with professional software engineering practices for institutional-grade options analysis.* 
