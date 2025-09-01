@@ -6,8 +6,6 @@ A comprehensive Python framework for analyzing all 84 options strategies from th
 
 ## 🏗️ Architecture Overview
 
-The Options Strategy Analyzer follows professional software engineering practices with a clean, modular design:
-
 ### Core Design Patterns
 
 - **Strategy Pattern**: Polymorphic strategy implementations
@@ -126,42 +124,6 @@ python option_strategy_analyzer.py C8
 - **Max Loss**: Premium paid
 - **Breakeven**: Strike + premium
 
-## 🎯 Professional Applications
-
-### Risk Management
-- **Defined Risk Strategies**: Spreads with capped losses
-- **Greeks Analysis**: Sensitivity to underlying factors
-- **Position Sizing**: Kelly criterion compatible outputs
-- **Portfolio Integration**: Delta-neutral construction
-
-### Market Making
-- **Volatility Trading**: IV expansion/contraction plays
-- **Time Decay Harvesting**: Theta-positive strategies
-- **Skew Trading**: Cross-strike arbitrage opportunities
-
-### Institutional Usage
-- **Compliance Ready**: Transparent risk calculations
-- **Audit Trail**: Reproducible analysis methodology
-- **Performance Attribution**: Component P&L breakdown
-
-## 🔍 Technical Specifications
-
-### Pricing Model
-- **Black-Scholes Framework**: Continuous dividend yield support
-- **Risk-Free Rate**: Configurable (default: 5%)
-- **Volatility**: Configurable (default: 25%)
-- **Early Exercise**: American option support (future enhancement)
-
-### Performance
-- **Vectorized Calculations**: NumPy-optimized computations
-- **Memory Efficient**: Lazy evaluation for large datasets
-- **Scalable Architecture**: Multi-strategy portfolio analysis ready
-
-### Output Formats
-- **PNG Graphics**: High-resolution visualization (300 DPI)
-- **Console Reports**: Detailed text analysis
-- **Data Export**: CSV/JSON support (extensible)
-
 ## 🏛️ Class Documentation
 
 ### OptionStrategy (Abstract Base)
@@ -242,22 +204,11 @@ python -m pytest tests/test_strategy_SP7.py
 # Coverage report
 python -m pytest --cov=option_strategy_analyzer
 ```
-
 ### Extension Points
 - **Custom Strategies**: Inherit from `OptionStrategy`
 - **Alternative Models**: Replace `BlackScholesCalculator`
 - **New Visualizations**: Extend `VisualizationEngine`
 - **Data Sources**: Live market data integration
-
-## 📝 License & Attribution
-
-This project implements the complete Options Strategy Bagua Analysis framework with professional-grade software engineering practices. The architecture supports institutional trading requirements while remaining accessible for educational purposes.
-
-**Key Contributors:**
-- Options Strategy Classification: Bagua Analysis Framework
-- Software Architecture: Object-Oriented Design Patterns
-- Financial Models: Black-Scholes-Merton Framework
-- Visualization: Matplotlib Professional Graphics
 
 ## 🔗 Related Projects
 
